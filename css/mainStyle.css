@@ -1,0 +1,170 @@
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.topTitle {
+    background-color: rgb(27, 27, 27);
+    color: rgb(245, 245, 245);
+    padding: 20px;
+}
+
+.mainWindow {
+    display: flex;
+    flex-flow: row;
+}
+
+.rightDiv {
+    display: block;
+    width: 85%;
+}
+
+#formMovieDiv {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.sideDiv {
+    /*position: absolute; /* !important; */
+    left: 0;
+    top: 0;
+    /*z-index:3;*/
+    display: flex;
+    flex-flow: column wrap;
+    width: max-content;
+    /*height: max-content;*/
+    border-right: 1px solid rgb(95, 181, 119);
+    background-color: rgb(245, 245, 245);
+}
+
+.sideItem, .sideItemTop, .sideChoicer {
+    margin: 0px 0px;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    padding: 10px 15px;
+}
+
+.sideChoicer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.sideChoicer:hover {
+    background-color: rgba(223, 223, 223, 0.486);
+    cursor: pointer;
+    user-select: none;
+}
+
+.sideChoicer i {
+    vertical-align: middle;
+}
+
+.sideChoicer i:hover {
+    color: rgb(82, 161, 105);
+}
+
+.sideItem:hover {
+    background-color: rgba(223, 223, 223, 0.486);
+    border-right: 3px solid rgba(95, 181, 119, 0.76);
+    cursor: pointer;
+    user-select: none;
+}
+
+.sideItemTop {
+    display: flex;
+    flex-flow: row ;
+}
+
+#sideIMDbButton, #sideTitleButton {
+    font-size: 20px;
+    width: max-content;
+    height: 30px;
+    padding: 3px 2px;
+    margin: 0px 5px;
+}
+
+#sideIMDbButton i, #sideTitleButton i {
+    font-size: 26px; 
+}
+
+.sideSearchField {
+    border: 1px solid thistle;
+    border-radius: 2px;
+    padding: 2px 5px;
+    font-size: 14px;
+    box-shadow: 0 0 0 2px rgba(216, 191, 216, 0);
+    width: 170px;
+}
+
+.sideSearchField:hover {
+    border: 1px solid rgb(204, 170, 204);
+}
+
+.sideSearchField:active {
+    border: 1px solid rgb(95, 181, 119);
+    border-radius: 2px;
+    padding: 2px 5px;
+    box-shadow: 0 0 0 2px rgba(124, 212, 149, 0.76);
+}
+
+/* Error message */
+.msgError {
+    font-family: 'Raleway', sans-serif;
+    color: #3b2e00;
+    text-align: center;
+    background-color: rgba(255, 232, 158, 0.87);
+    border: 1px solid #ffe07a;
+    border-radius: 4px;
+    padding: 5px 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: max-content;
+}
+
+.rowButton, .addButton {
+    font-size: 14px;
+    width: max-content;
+    height: 30px;
+    padding: 5px 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Movie table */
+.movieTable {
+    position: relative;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.movieTable thead {
+    color: ghostwhite;
+    font-size: 16px;
+    background-color: rgb(95, 181, 119);
+    border: 2px solid rgb(95, 181, 119);
+    height: 40px;
+}
+
+.movieTable tbody {
+    border: 2px solid rgb(95, 181, 119);
+}
+
+.movieTable tr {
+    /*border-left: 1px solid rgb(81, 153, 102);*/
+    border-top: 1px solid rgba(207, 207, 207, 0.726);
+    /*border-right: 1px solid rgb(81, 153, 102);*/
+    /*border-bottom: 1px solid rgb(81, 153, 102);*/
+}
+
+.movieTable td {
+    padding: 5px 10px;
+    text-align: center;    
+}
+
