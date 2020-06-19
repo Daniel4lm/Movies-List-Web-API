@@ -43,7 +43,7 @@ function returnError(movie) {
     $('#msgError').html(`<h5> ${movie.Error} </h5>`).removeClass('collapse');
     $('#msgError').addClass('collapse.show');
     //$('#addButton').css('margin-left', $(`#${mainTableID}`).css('margin-left').replace('px', '') * 1.05);
-
+    
 }
 
 function movieRead(movie) {

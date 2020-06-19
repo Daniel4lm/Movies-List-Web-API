@@ -5,5 +5,5 @@ function productDelete(btn) {
 
     const thisRow = $(btn).parents("tr");
     thisRow.remove();
-    
+    clearMessage();
 }

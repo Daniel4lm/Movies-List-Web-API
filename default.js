@@ -14,11 +14,12 @@ $(document).ready(() => {
 
     //let tablePosition = $('#mainTable').position();
     //$('.addButton').css('margin-left', $('#mainTable').css('margin-left').replace('px', '') * 1.05);
-    
+
     $('#sideSearchIMDb').focus();
 
     /* Add button for adding new movies */
     addButton.on('click', () => {
+        clearMessage();
         eventForm(addButton);
     });
 
@@ -48,11 +49,11 @@ $(document).ready(() => {
 
     /* Side IMDb id search button */
     $('#sideIMDbButton').on('click', (event) => {
-        let inputValue = $('#sideSearchIMDb').val();        
+        let inputValue = $('#sideSearchIMDb').val();
         tableClear('mainTable'); /* Clear table */
-        if(curBuffer) {
+        if (curBuffer) {
             curBuffer.length = 0;
-        }        
+        }
         moviesList(['i', inputValue]);
         $('#sideSearchIMDb').val("");
 
@@ -68,22 +69,22 @@ $(document).ready(() => {
     });
 
     $('#listMovies').on('click', (event) => {
-        curBuffer = [...[curBuffer[0], curBuffer[1]], ...['type', 'movie'] ];
-        filterCategories(curBuffer);       
+        curBuffer = [...[curBuffer[0], curBuffer[1]], ...['type', 'movie']];
+        filterCategories(curBuffer);
     });
 
     $('#listSeries').on('click', (event) => {
-        curBuffer = [...[curBuffer[0], curBuffer[1]], ...['type', 'series'] ];
-        filterCategories(curBuffer);        
+        curBuffer = [...[curBuffer[0], curBuffer[1]], ...['type', 'series']];
+        filterCategories(curBuffer);
     });
 
     $('#listGames').on('click', (event) => {
-        curBuffer = [...[curBuffer[0], curBuffer[1]], ...['type', 'game'] ];
+        curBuffer = [...[curBuffer[0], curBuffer[1]], ...['type', 'game']];
         filterCategories(curBuffer);
     });
 
     $('#listEpisodes').on('click', (event) => {
-        curBuffer = [...[curBuffer[0], curBuffer[1]], ...['type', 'episode'] ];
+        curBuffer = [...[curBuffer[0], curBuffer[1]], ...['type', 'episode']];
         filterCategories(curBuffer);
     });
 });
@@ -92,7 +93,7 @@ function filterCategories(buffer) {
     if (getTableLength('mainTable') > 1) {
         tableClear('mainTable');
         moviesList(curBuffer);
-    }    
+    }
 }
 
 /*
@@ -113,8 +114,8 @@ function makeRightPanel() {
 function makeSidePanel() {
     let posTop = Number($('#topTitle').css('height').replace('px', ''));
     //alert( window.innerHeight );
-    let heightSide = Number(window.innerHeight) - posTop ;
-    $('.sideDiv').css('top', posTop );
+    let heightSide = Number(window.innerHeight) - posTop;
+    $('.sideDiv').css('top', posTop);
     $('.sideDiv').css('height', heightSide);
 }
 
@@ -129,18 +130,37 @@ function eventForm(btn) {
         $('#formMovieDiv').removeClass('collapse');
         $('#formMovieDiv').addClass('collapse.show');
         $('#updateButton').text(btn.text()).addClass('btn btn-primary');
-        heightSide = document.body.clientHeight - posTop ;
+        heightSide = document.body.clientHeight - posTop;
     } else {
         $('#formMovieDiv').removeClass('collapse.show');
         $('#formMovieDiv').addClass('collapse');
         $('#updateButton').text("").removeClass('btn btn-primary');
-        heightSide = Number(window.innerHeight) - posTop ;
+        heightSide = Number(window.innerHeight) - posTop;
         formClear();
-    }   
+    }
     $('.sideDiv').css('height', heightSide);
 }
 
+function checkEmptyness() {
+
+    if (!$("#title").val() || !$("#introyear").val() || !$("#imdbID").val() || !$('#type').val()) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function clearMessage() {
+    $('#msgError').addClass('collapse');
+}
+
 function formClick() {
+
+    if (!checkEmptyness()) {
+        $('#msgError').html(`<h5> You must fill all fields </h5>`).removeClass('collapse');
+        $('#msgError').addClass('collapse.show');
+        return;
+    }
 
     if ($("#updateButton").text().trim() == "Add") {
         addFromForm();
@@ -152,6 +172,7 @@ function formClick() {
 
     $('#formMovieDiv').removeClass('collapse.show');
     $('#formMovieDiv').addClass('collapse');
+    clearMessage();
 }
 
 function tableClear(tableId) {
