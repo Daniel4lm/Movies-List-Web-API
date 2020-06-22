@@ -24,6 +24,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+    transition: all .4s ease-in-out;
 }
 
 .sideDiv {
@@ -43,6 +44,7 @@ body {
     margin: 0px 0px;
     border-bottom: 1px solid rgb(209, 209, 209);
     padding: 10px 15px;
+    transition: all .2s linear;
 }
 
 .sideChoicer {
@@ -67,7 +69,7 @@ body {
 
 .sideItem:hover {
     background-color: rgba(223, 223, 223, 0.486);
-    border-right: 3px solid rgba(95, 181, 119, 0.76);
+    border-right: 4px solid rgba(95, 181, 119, 0.76);
     cursor: pointer;
     user-select: none;
 }
@@ -77,6 +79,34 @@ body {
     flex-flow: row ;
 }
 
+.search_button {
+    font-size: 20px;
+    width: max-content;
+    height: 30px;
+    padding: 3px 2px;
+    margin: 0px 5px;
+	background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(95, 181, 119);
+	color: rgb(61, 61, 61);
+    border-radius: 2px;    
+	transition: all .4s ease;
+}
+
+
+.search_button:hover {
+    background-color: #80e29cb0;
+}
+
+.search_button:active {
+    background-color:rgb(95, 181, 119);
+    color: rgb(240, 255, 244);
+}
+
+.search_button:focus {
+    outline:none;
+}
+
+/*
 #sideIMDbButton, #sideTitleButton {
     font-size: 20px;
     width: max-content;
@@ -87,7 +117,7 @@ body {
 
 #sideIMDbButton i, #sideTitleButton i {
     font-size: 26px; 
-}
+}*/
 
 .sideSearchField {
     border: 1px solid thistle;
@@ -116,7 +146,7 @@ body {
     text-align: center;
     background-color: rgba(255, 232, 158, 0.87);
     border: 1px solid #ffe07a;
-    border-radius: 4px;
+    border-radius: 2px;
     padding: 5px 25px;
     margin-left: auto;
     margin-right: auto;
@@ -142,6 +172,7 @@ body {
     margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
+    transition: all 4s ease-out;
 }
 
 .movieTable thead {
